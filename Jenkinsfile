@@ -9,6 +9,8 @@ pipeline {
         stage("Hello") {
             steps {
                 echo("Hello World!")
+                sleep(10)
+                echo("Hello after 10 sec!")
             }
         }  
 
