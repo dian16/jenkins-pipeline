@@ -5,24 +5,28 @@ pipeline {
         }
     }
     
-    stages {
-        stage("Hello") {
-            steps {
-                echo("Hello World!")
-                sleep(10)
-                echo("Hello after 10 sec!")
-            }
-        }  
+    // stages {
+    //     stage("Hello") {
+    //         steps {
+    //             echo("Hello World!")
+    //             sleep(10)
+    //             echo("Hello after 10 sec!")
+    //         }
+    //     }  
 
-        stage("Build"){
+        stage("Start Build"){
             steps {
-                echo "Build!"
+                echo "Start Build!"
+                sh "./mvnw clean compile test-compile"
+                echo "Finish Build!"
             }
         } 
 
         stage("Test"){
             steps {
-                echo "Test!"
+                echo "Start Build!"
+                sh "./mvnw test"
+                echo "Finish Build!"
             }
         }
         stage("Deploy"){
